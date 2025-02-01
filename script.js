@@ -1,34 +1,24 @@
-
-var online = null;
-// Function to be called by event listener and set the online variable
-function setOnlineStatus(event) {
-    online = event.type === 'online';
-}
-window.addEventListener('online', setOnlineStatus);
-window.addEventListener('offline', setOnlineStatus);
-
-
-
-function checkOnlineStatus() {
-    if (navigator.onLine) {
-        alert('Online function');
-    } else {
-        alert('Offline function');
+// Fetch word from dictionary API to test if internet connection is valid, do not cache
+async function checkOnlineStatus() {
+    let url = 'https://api.dictionaryapi.dev/api/v2/entries/en/hello';
+    const timeout = 3000;
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeout);
+    try {
+        const response = await fetch(url, {
+            signal: controller.signal,
+            cache: "no-store"
+        });
+        return response.ok;
+    }
+    catch (error) {
+        console.error(error);
+        return false;
+    }
+    finally {
+        clearTimeout(id);
     }
 }
-checkOnlineStatus();
-
-// Check online status as needed
-setInterval(checkOnlineStatus, 2000);
-
-// Listen for the 'online' and 'offline' events
-document.addEventListener('online', function () {
-    alert('Online listener');
-});
-
-document.addEventListener('offline', function () {
-    alert('Offline listener');
-});
 
 // Initialisation function to be called when the DOM has loaded
 function init() {
@@ -51,10 +41,13 @@ function init() {
         }
     }
 
-    setInterval(function () {
-        const time = new Date().toLocaleTimeString();
-        document.querySelector("#online-check").textContent = `Online check: ${online} at ${time}`
-    }, 2000);
+    let button = document.querySelector("#online-check-button");
+    button.addEventListener("click", () => {
+        button.textContent = "Checking..."
+        checkOnlineStatus().then(response => {
+            button.textContent = `Check Online: ${response}`;
+        });
+    });
 
 }
 
