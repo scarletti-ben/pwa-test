@@ -2,14 +2,14 @@ const CACHE_NAME = 'my-cache-v1'; // Version the cache name
 
 // Files to cache
 const FILES_TO_CACHE = [
-    '/',
-    '/index.html',
-    '/styles.css',
-    '/script.js',
-    '/manifest.json',
-    '/icon.png',
-    '/screenshot-mobile.png',
-    '/screenshot-wide.png'
+    '/pwa-test/',
+    '/pwa-test/index.html',
+    '/pwa-test/styles.css',
+    '/pwa-test/script.js',
+    '/pwa-test/manifest.json',
+    '/pwa-test/icon.png',
+    '/pwa-test/screenshot-mobile.png',
+    '/pwa-test/screenshot-wide.png'
 ];
 
 // Install event: Cache necessary files

@@ -5,7 +5,7 @@ function init() {
         if (!navigator.serviceWorker.controller) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker
-                    .register('/service-worker.js')
+                    .register('/pwa-test/service-worker.js')
                     .then((registration) => {
                         console.log('Service Worker registered with scope: ', registration.scope);
                     })
