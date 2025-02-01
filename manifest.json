@@ -5,7 +5,7 @@
     "id": "/pwa-test/",
     "start_url": "/pwa-test/",
     "scope": "/pwa-test/",
-    "display": "standalone",
+    "display": "fullscreen",
     "background_color": "#303030",
     "theme_color": "#484848",
     "icons": [
