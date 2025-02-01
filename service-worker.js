@@ -33,7 +33,6 @@ self.addEventListener('fetch', (event) => {
 // Activate event: Clean up old caches (based on the cache version)
 self.addEventListener('activate', (event) => {
     const cacheWhitelist = [CACHE_NAME]; // Only keep the latest cache
-
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(

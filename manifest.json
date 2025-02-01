@@ -17,13 +17,13 @@
     ],
     "screenshots": [
         {
-            "src": "/pwa-test/screenshot-wide.png",
+            "src": "/pwa-test/desktop.png",
             "sizes": "1280x720",
             "type": "image/png",
             "form_factor": "wide"
         },
         {
-            "src": "/pwa-test/screenshot-mobile.png",
+            "src": "/pwa-test/mobile.png",
             "sizes": "640x1136",
             "type": "image/png"
         }
