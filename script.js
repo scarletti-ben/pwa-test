@@ -7,6 +7,29 @@ function setOnlineStatus(event) {
 window.addEventListener('online', setOnlineStatus);
 window.addEventListener('offline', setOnlineStatus);
 
+
+
+function checkOnlineStatus() {
+    if (navigator.onLine) {
+        alert('Online function');
+    } else {
+        alert('Offline function');
+    }
+}
+checkOnlineStatus();
+
+// Check online status as needed
+setInterval(checkOnlineStatus, 2000);
+
+// Listen for the 'online' and 'offline' events
+document.addEventListener('online', function () {
+    alert('Online listener');
+});
+
+document.addEventListener('offline', function () {
+    alert('Offline listener');
+});
+
 // Initialisation function to be called when the DOM has loaded
 function init() {
 
