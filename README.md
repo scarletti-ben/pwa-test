@@ -10,6 +10,9 @@
 - `display-override` in manifest, mentioned in `Chrome DevTools`
 - Explain versioning in manifest
 
+# Links
+https://www.youtube.com/watch?v=KzvK809rl3Q
+
 # Issues
 MANY attempts have been made to force the app to fill the space in the notch / cutout on Pixel, but none has worked
 - Seems to work on firefox, but firefox opens two instances when you have an app version so that is another issue!
