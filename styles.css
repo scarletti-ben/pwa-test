@@ -14,7 +14,7 @@ html, body {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  overflow: auto;
+  overflow: visible;
   background-color: var(--background-colour);
   color: var(--foreground-colour);
   font-family: var(--font-family);
@@ -35,6 +35,15 @@ body {
 #page {
   height: 100%;
   width: 100%;
+}
+
+.green-box {
+  background-color: green;
+  height: 200px;
+  width: 50%;
+  position: relative;
+  top: -100px;
+  left: 40%;
 }
 
 /* This allows content to extend into the notch/safe area */
