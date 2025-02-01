@@ -6,8 +6,8 @@
     "start_url": "/pwa-test/",
     "scope": "/pwa-test/",
     "display": "fullscreen",
-    "background_color": "#303030",
-    "theme_color": "#484848",
+    "background_color": "#000000",
+    "theme_color": "#000000",
     "icons": [
         {
             "src": "/pwa-test/icon.png",
