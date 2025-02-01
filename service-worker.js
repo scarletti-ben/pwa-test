@@ -8,8 +8,8 @@ const FILES_TO_CACHE = [
     '/pwa-test/script.js',
     '/pwa-test/manifest.json',
     '/pwa-test/icon.png',
-    '/pwa-test/screenshot-mobile.png',
-    '/pwa-test/screenshot-wide.png'
+    '/pwa-test/mobile.png',
+    '/pwa-test/desktop.png'
 ];
 
 // Install event: Cache necessary files
