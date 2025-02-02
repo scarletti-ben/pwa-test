@@ -6,6 +6,7 @@
     - An example is in `manifest.json` with `"start_url": "/pwa-test/"` instead of `"/"` or `"."`
     - When working locally via `localhost`, setting up the server in the directory above `pwa-test` fixes some issues
 - The `service worker` should generally use `cached` files for `fetch` before making outward network requests for files as below
+- Switching between `"display": "standalone"` and `"display": "fullscreen"` in `mainfest.json` controls how the status bar renders on mobile
 
 ```javascript
 // Fetch event: Serve cached files or fallback to network
