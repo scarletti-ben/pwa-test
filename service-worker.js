@@ -1,4 +1,5 @@
-const CACHE_NAME = 'my-cache-v1'; // Version the cache name
+// Changing the CACHE_NAME to a different version forces an update of the cache
+const CACHE_NAME = 'my-cache-v1';
 
 // Files to cache
 const FILES_TO_CACHE = [

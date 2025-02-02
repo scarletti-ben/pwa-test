@@ -3,19 +3,38 @@
     - `manifest.json`, a configuration file that defines application info and and display mode for installation as a `PWA`
     - `service-worker.js`, a script that runs in the background to enable offline caching, push notifications, and background sync
 - This repository is set up to work on `GitHub Pages` so file references are setup assuming the root for `https://scarletti-ben.github.io/pwa-test` is `https://scarletti-ben.github.io`
+    - An example is in `manifest.json` with `"start_url": "/pwa-test/"` instead of `"/"` or `"."`
     - When working locally via `localhost`, setting up the server in the directory above `pwa-test` fixes some issues
+- The `service worker` should generally use `cached` files for `fetch` before making outward network requests for files as below
+
+```javascript
+// Fetch event: Serve cached files or fallback to network
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        caches.match(event.request).then((cachedResponse) => {
+            return cachedResponse || fetch(event.request);
+        })
+    );
+});
+```
+
+# Updating Service Worker and Cache
+- If you make a change to `service-worker.js` you can force the `cache` to be regenerated, the simplest way is to increment `const CACHE_NAME = 'my-cache-v1'` to `my-cache-v2` for instance and then deploy, as the old cache will not match new `CACHE_NAME`
+- You may still need to `hard reload` the page, as the page might not notice changes to `service-worker.js` otherwise
 
 ### Google Chrome DevTools
-Service Worker
+Below are some screenshots that indicate that `manifest.json` and `service-worker.js` are working as intended
+
+#### Service Worker
 ![screenshot](screenshots/01.png)
 
-Storage
+#### Storage
 ![screenshot](screenshots/02.png)
 
-Cache Storage
+#### Cache Storage
 ![screenshot](screenshots/03.png)
 
-App Manifest
+#### App Manifest
 ![screenshot](screenshots/04.png)
 
 # Issues
@@ -30,3 +49,4 @@ App Manifest
 
 # Learnings
 - The capacity of `localstorage` is roughly `5MB` *per site*
+- Using `defer` for a script in `index.html` will only load it once the `DOM` has loaded, whereas `async` will run immediately in parallel without blocking the `HTML`
